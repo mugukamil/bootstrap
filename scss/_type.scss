@@ -27,8 +27,13 @@
 
 
 .lead {
-  @include font-size($lead-font-size);
-  font-weight: $lead-font-weight;
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.4;
+  @media (min-width: 768px) {
+    font-size: 21px;
+  }
 }
 
 // Type display classes

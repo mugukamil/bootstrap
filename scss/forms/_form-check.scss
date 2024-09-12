@@ -6,7 +6,9 @@
   display: block;
   min-height: $form-check-min-height;
   padding-left: $form-check-padding-start;
-  margin-bottom: $form-check-margin-bottom;
+  position: relative;
+  margin-top: 10px;
+  margin-bottom: 10px;
 
   .form-check-input {
     float: left;
