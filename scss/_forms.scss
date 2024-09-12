@@ -7,3 +7,11 @@
 @import "forms/floating-labels";
 @import "forms/input-group";
 @import "forms/validation";
+.form-group {
+  margin-bottom: 15px;
+}
+button,input,optgroup,select,textarea {
+    color: inherit;
+    font: inherit;
+    margin: 0
+}

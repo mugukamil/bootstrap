@@ -8,9 +8,7 @@
 
 // scss-docs-start collapse-classes
 .collapse {
-  &:not(.show) {
-    display: none;
-  }
+  display: none;
 }
 
 .collapsing {
