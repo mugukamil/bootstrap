@@ -12,16 +12,14 @@
 
   // Responsive containers that are 100% wide until a breakpoint
   @each $breakpoint, $container-max-width in $container-max-widths {
-    .container {
+    .container-#{$breakpoint} {
       @extend .container-fluid;
     }
 
     @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
-      %responsive-container-#{$breakpoint},
-      .row > .container {
+      %responsive-container-#{$breakpoint} {
         max-width: $container-max-width;
       }
-
 
       // Extend each breakpoint which is smaller or equal to the current breakpoint
       $extend-breakpoint: true;
