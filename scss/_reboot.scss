@@ -87,37 +87,47 @@ hr {
   font-style: $headings-font-style;
   font-weight: $headings-font-weight;
   line-height: $headings-line-height;
-  color: var(--#{$prefix}heading-color);
+  color: $headings-color;
 }
 
 h1 {
   @extend %heading;
-  @include font-size($h1-font-size);
+  font-size: $h1-font-size;
 }
 
 h2 {
   @extend %heading;
-  @include font-size($h2-font-size);
+  font-size: $h2-font-size;
 }
 
 h3 {
   @extend %heading;
-  @include font-size($h3-font-size);
+  font-size: $h3-font-size;
 }
 
 h4 {
   @extend %heading;
-  @include font-size($h4-font-size);
+  font-size: $h4-font-size;
 }
 
 h5 {
   @extend %heading;
-  @include font-size($h5-font-size);
+  font-size: $h5-font-size;
 }
 
 h6 {
   @extend %heading;
-  @include font-size($h6-font-size);
+  font-size: $h6-font-size;
+}
+
+h1,.h1,h2,.h2,h3,.h3 {
+    margin-top: 20px;
+    margin-bottom: 10px
+}
+
+h4,.h4,h5,.h5,h6,.h6 {
+    margin-top: 10px;
+    margin-bottom: 10px
 }
 
 
@@ -155,11 +165,6 @@ address {
 
 
 // Lists
-
-ol,
-ul {
-  padding-left: 2rem;
-}
 
 ol,
 ul,
@@ -200,7 +205,7 @@ blockquote {
 
 b,
 strong {
-  font-weight: $font-weight-bolder;
+  font-weight: $font-weight-bold;
 }
 
 
@@ -217,7 +222,6 @@ small {
 
 mark {
   padding: $mark-padding;
-  color: var(--#{$prefix}highlight-color);
   background-color: var(--#{$prefix}highlight-bg);
 }
 
@@ -242,11 +246,11 @@ sup { top: -.5em; }
 // Links
 
 a {
-  color: rgba(var(--#{$prefix}link-color-rgb), var(--#{$prefix}link-opacity, 1));
+  color: var(--#{$prefix}link-color);
   text-decoration: $link-decoration;
 
   &:hover {
-    --#{$prefix}link-color-rgb: var(--#{$prefix}link-hover-color-rgb);
+    color: var(--#{$prefix}link-hover-color);
     text-decoration: $link-hover-decoration;
   }
 }
@@ -382,6 +386,8 @@ th {
 
 label {
   display: inline-block; // 1
+  max-width: 100%;
+  margin-bottom: 5px;
 }
 
 // Remove the default `border-radius` that macOS Chrome adds.
@@ -499,9 +505,9 @@ legend {
   width: 100%;
   padding: 0;
   margin-bottom: $legend-margin-bottom;
+  @include font-size($legend-font-size);
   font-weight: $legend-font-weight;
   line-height: inherit;
-  @include font-size($legend-font-size);
 
   + * {
     clear: left; // 2
@@ -525,15 +531,15 @@ legend {
   height: auto;
 }
 
-// 1. This overrides the extra rounded corners on search inputs in iOS so that our
+// 1. Correct the outline style in Safari.
+// 2. This overrides the extra rounded corners on search inputs in iOS so that our
 //    `.form-control` class can properly style them. Note that this cannot simply
 //    be added to `.form-control` as it's not specific enough. For details, see
 //    https://github.com/twbs/bootstrap/issues/11586.
-// 2. Correct the outline style in Safari.
 
 [type="search"] {
-  -webkit-appearance: textfield; // 1
-  outline-offset: -2px; // 2
+  outline-offset: -2px; // 1
+  -webkit-appearance: textfield; // 2
 }
 
 // 1. A few input types should stay LTR
